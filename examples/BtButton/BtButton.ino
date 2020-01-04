@@ -12,30 +12,31 @@ void setup()
 void loop()
 {
   btn1.read();
-  // If you want to do something only once the user presses the button,
-  // we need to check changed(), then isPressed(). Alternatively, we
-  // could use if (changedToPressed()) { <do something> }.
-  // btn1.isPressed() returns true as long as the button is pressed!
+  // btn1.isPressed() returns true as long as the button is pressed.
+  // Thus, if you want to do something only once for each button press,
+  // you need to check changed(), followed by isPressed() as follows:
   if (btn1.changed())
   {
     if (btn1.isPressed())
-      Serial.println("Button 1 PRESSED");
+      Serial.println("Button 1 pressed");
     else
-      Serial.println("Button 1 R");
+      Serial.println("Button 1 released");
   }
+  //  Alternatively, you could use:
+  //  if (btn1.changedToPressed()) { <do something> }
   
   btn2.read();
   if (btn2.changed())
   {
     if (btn2.isPressed())
-      Serial.println("Button 2 PRESSED");
+      Serial.println("Button 2 pressed");
     else
-      Serial.println("Button 2 R");
+      Serial.println("Button 2 released");
   }
 
-  // We can also check if a button is held
+  // We can also check if a button is held:
   if (btn1.isHeld())
-    Serial.println("Button 1 is on hold!");
+    Serial.println("Button 1 is being held!");
   if (btn2.isHeld())
-    Serial.println("Button 2 is on hold!");
+    Serial.println("Button 2 is being held!");
 }

@@ -1,7 +1,7 @@
 #include <BtStopWatch.h>
 
-BtStopWatch stop_watch;
-uint8_t iteration = 0;
+// This demo uses a millisecond-accurate stop watch:
+BtStopWatchMillis stop_watch;
 
 void setup() 
 {
@@ -12,32 +12,21 @@ void setup()
 void loop() 
 {
   unsigned long elapsed = stop_watch.elapsed();
-  Serial.println(elapsed);
+  Serial.print("Stop watch is");
+  if (!stop_watch.isRunning())
+    Serial.print(" NOT");
+  Serial.println(" running.");
+  Serial.print("  Elapsed ms: ");
+  Serial.print(elapsed);
+  delay(1000);
 
+  Serial.print(", ");
+  Serial.print(stop_watch.elapsed());
   delay(1000);
-  Serial.println(stop_watch.elapsed());
-  delay(1000);
-  Serial.println(stop_watch.elapsed());
-  Serial.println("Toggle 1:");
-  stop_watch.toggle();
-  delay(1000);
-  Serial.println("Toggle 2:");
-  Serial.println(stop_watch.elapsed());
-  stop_watch.toggle();
-  delay(1000);
-  Serial.println(stop_watch.elapsed());
-  Serial.println("Stopping:");
-  stop_watch.stop();
-  delay(1000);
-  Serial.println(stop_watch.elapsed());
 
-  if (++iteration % 5 == 0)
-  {
-    Serial.println("Resetting stop watch");
-    stop_watch.reset();
-    stop_watch.start();
-  }
-  
-  // const double elapsed_sec = StopWatch::to_sec(elapsed);
-  // Serial.println(elapsed_sec);
+  Serial.print(", ");
+  Serial.println(stop_watch.elapsed());
+  delay(1000);
+
+  stop_watch.toggle();
 }

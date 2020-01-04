@@ -49,4 +49,11 @@ private:
   // Pin number (digital in).
   uint8_t pin_;
 };
+
+inline bool potentiometerChanged(uint16_t current, uint16_t previous, uint16_t threshold=10)
+{
+  if (current > previous)
+    return (current - previous) > threshold;
+  return (previous - current) > threshold;
+}
 #endif

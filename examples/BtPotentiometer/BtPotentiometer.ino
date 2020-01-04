@@ -1,7 +1,8 @@
 #include <BtPotentiometer.h>
 
-// We connect a potentiometer at (5V, GND, and) A1.
-// Split the potentiometer's range into 5 bins.
+// We connect a potentiometer at (5V, GND, and) analog A1 (pin 15).
+// Additionally, we want to split the potentiometer's range
+// into 5 bins.
 BtPotentiometer<5> poti(15);
 
 uint16_t prev_value = 65535;
@@ -11,23 +12,17 @@ void setup()
   Serial.begin(9600);
 }
 
-bool changed(uint16_t val)
-{
-  if (val > prev_value)
-    return (val - prev_value) > 5;
-  return (prev_value - val) > 5;
-}
-
 void loop()
 {
+  // Read current value and print to serial monitor if changed.
   const uint16_t value = poti.readValue();
-  if (changed(value))
+  if (potentiometerChanged(value, prev_value, 5))
   {
     prev_value = value;
-    Serial.println("New value & bin:");
-    Serial.println(value);
+    Serial.print("Poti value: ");
+    Serial.print(value);
+    Serial.print(", bin ");
     Serial.println(poti.readBin());
-    //Serial.println(poti.numBins());
   }
   delay(200);
 }

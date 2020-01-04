@@ -7,3 +7,10 @@ Includes wrappers for:
 * `BtPotentiometer` (templated class) - allows querying and binning the potentiometer value.
 * `BtSevenSegmentDisplay` - 7-segment display wrappers currently supporting `TM1637` digital tubes (4-digit with colon).
 * `BtStopWatch` (templated class) - measures time.
+
+TODO:
+* Test changed stop watch example
+* Document stop watch example
+* Document lib classes/check documentation
+* Tag/release
+* Arduino Lib Manager issue

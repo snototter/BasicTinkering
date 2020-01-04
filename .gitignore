@@ -3,4 +3,4 @@
 *.autosave
 *.venv*
 **/.vscode/*
-
+*.tmp

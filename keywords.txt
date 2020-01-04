@@ -43,6 +43,7 @@ fadeOut												KEYWORD2
 readBin												KEYWORD2
 readValue											KEYWORD2
 numBins												KEYWORD2
+potentiometerChanged					KEYWORD2
 
 # BtSevenSegmentDisplayTM1637
 setBrightness									KEYWORD2

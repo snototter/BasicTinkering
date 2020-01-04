@@ -2,14 +2,19 @@
 
 #define DELAY 1000
 
+// On Arduino Nano, pin 9 is one of the PWM-enabled pins (needed
+// to demonstrate fading/dimming)
 BtLED led(9);
+
 void setup() {}
 
 void loop()
 {
-  // Fading
+  // Fade in to full brightness (blocking call)
   led.fadeIn(2000);
+  // Keep LED at full brightness for some time
   delay(DELAY);
+  // Fade out again
   led.fadeOut(1000);
   delay(DELAY);
 
