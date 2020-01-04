@@ -1,0 +1,81 @@
+#######################################
+# Syntax Coloring Map: BasicTinkering
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+BtButton											KEYWORD1
+BtLED													KEYWORD1
+BtPotentiometer								KEYWORD1
+BtSevenSegmentDisplayTM1637		KEYWORD1
+BtStopWatch										KEYWORD1
+BtStopWatchMillis							KEYWORD1
+BtStopWatchMicros							KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+# BtButton
+read													KEYWORD2
+isPressed											KEYWORD2
+isHeld												KEYWORD2
+changed												KEYWORD2
+changedToPressed							KEYWORD2
+
+# BtLED
+status												KEYWORD2
+on														KEYWORD2
+off														KEYWORD2
+toggle												KEYWORD2
+startBlinking									KEYWORD2
+blink													KEYWORD2
+stopBlinking									KEYWORD2
+blockingBlink									KEYWORD2
+setValue											KEYWORD2
+setDimValue										KEYWORD2
+fadeIn												KEYWORD2
+fadeOut												KEYWORD2
+
+# BtPotentiometer
+readBin												KEYWORD2
+readValue											KEYWORD2
+numBins												KEYWORD2
+
+# BtSevenSegmentDisplayTM1637
+setBrightness									KEYWORD2
+displayInteger								KEYWORD2
+displayTime										KEYWORD2
+clear													KEYWORD2
+setSegments										KEYWORD2
+getSegments										KEYWORD2
+digitToSegment								KEYWORD2
+
+# BtStopWatch
+toSeconds											KEYWORD2
+elapsed												KEYWORD2
+isRunning											KEYWORD2
+reset													KEYWORD2
+start													KEYWORD2
+toggle												KEYWORD2
+stop													KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+# BtPotentiometer
+BT_ADC_RESOLUTION							LITERAL1
+
+# BtSevenSegmentDisplayTM1637
+BT_SSD_SEG_A									LITERAL1
+BT_SSD_SEG_B									LITERAL1
+BT_SSD_SEG_C									LITERAL1
+BT_SSD_SEG_D									LITERAL1
+BT_SSD_SEG_E									LITERAL1
+BT_SSD_SEG_F									LITERAL1
+BT_SSD_SEG_G									LITERAL1
+BT_SSD_SEG_COLON							LITERAL1
+
