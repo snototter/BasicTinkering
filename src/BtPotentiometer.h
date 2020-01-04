@@ -50,6 +50,8 @@ private:
   uint8_t pin_;
 };
 
+
+// Check if two potentiometer readings differ more than a given threshold.
 inline bool potentiometerChanged(uint16_t current, uint16_t previous, uint16_t threshold=10)
 {
   if (current > previous)
