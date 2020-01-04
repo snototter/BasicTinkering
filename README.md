@@ -12,5 +12,6 @@ TODO:
 * Test changed stop watch example
 * Document stop watch example
 * Document lib classes/check documentation
+* LED setValue => setBrightness
 * Tag/release
 * Arduino Lib Manager issue
