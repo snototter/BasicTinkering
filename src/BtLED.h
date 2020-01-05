@@ -37,8 +37,11 @@ public:
   // Blocking call to blink n times ("time" ms on, "time" ms off).
   void blockingBlink(unsigned int time, unsigned int n);
 
-  // Set a value [0, 255] directly. Ensure that the
+  // Set a brightness value [0, 255] directly. Ensure that the
   // LED is wired to a PWM pin!
+  // This brightness value will only be set once. If you want to
+  // keep the same brightness across several on/toggle/off-cycles,
+  // use setDimValue() instead!
   // See
   // https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/
   // and

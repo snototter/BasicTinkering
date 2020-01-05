@@ -9,9 +9,13 @@ Includes wrappers for:
 * `BtStopWatch` (templated class) - measures time.
 
 TODO:
-* Test changed stop watch example
-* Document stop watch example
 * Document lib classes/check documentation
+* Checked:
+  * BtButton
+  * BtLED
+  * BtPotentio
+  * BtStopW
+  * BtSSD
 * LED setValue => setBrightness
 * Tag/release
 * Arduino Lib Manager issue

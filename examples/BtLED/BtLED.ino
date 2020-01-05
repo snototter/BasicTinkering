@@ -1,10 +1,10 @@
 #include <BtLED.h>
 
-#define DELAY 1000
-
-// On Arduino Nano, pin 9 is one of the PWM-enabled pins (needed
+// On Arduino Nano, pin D9 is one of the PWM-enabled pins (needed
 // to demonstrate fading/dimming)
 BtLED led(9);
+
+#define DELAY 1000
 
 void setup() {}
 
