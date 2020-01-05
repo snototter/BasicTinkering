@@ -8,10 +8,3 @@ Includes wrappers for:
 * `BtSevenSegmentDisplay` - 7-segment display wrappers currently supporting `TM1637` digital tubes (4-digit with colon).
 * `BtStopWatch` (templated class) - measures time.
 
-TODO
-* DONE Check documentation of library classes
-* DONE Check examples
-* Check lib.properties
-* push
-* Tag commit
-* Open lib mgr issue
