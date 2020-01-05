@@ -8,14 +8,7 @@ Includes wrappers for:
 * `BtSevenSegmentDisplay` - 7-segment display wrappers currently supporting `TM1637` digital tubes (4-digit with colon).
 * `BtStopWatch` (templated class) - measures time.
 
-TODO:
-* Document lib classes/check documentation
-* Checked:
-  * BtButton
-  * BtLED
-  * BtPotentio
-  * BtStopW
-  * BtSSD
-* LED setValue => setBrightness
-* Tag/release
-* Arduino Lib Manager issue
+TODO
+* Check documentation library classes
+* Tag commit
+* Open lib mgr issue
