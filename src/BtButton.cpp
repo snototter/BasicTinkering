@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <BtButton.h>
 
-// Bit numbers
+// Bit numbers used for internal state variable
 #define STATE_CURRENT  0
 #define STATE_PREVIOUS 1
 #define STATE_CHANGED  2
@@ -27,10 +27,6 @@ BtButton::BtButton(uint8_t pin, unsigned int debounce_delay, unsigned int hold_d
   bitWrite(state_, STATE_INVERT, 1);
   bitWrite(state_, STATE_CURRENT, bitRead(state_, STATE_CURRENT) ^ bitRead(state_, STATE_INVERT));
   bitWrite(state_, STATE_PREVIOUS, bitRead(state_, STATE_CURRENT));
-
-  //Serial.println("After init:");
-  //Serial.println(bitRead(state_, STATE_CURRENT));
-  //Serial.println(bitRead(state_, STATE_PREVIOUS));
 }
 
 bool BtButton::read()
@@ -52,11 +48,6 @@ bool BtButton::read()
     bitWrite(state_, STATE_PREVIOUS, bitRead(state_, STATE_CURRENT));
     // ... and store the current state (invert if necessary)
     bitWrite(state_, STATE_CURRENT, scan ^ bitRead(state_, STATE_INVERT));
-
-    //Serial.println("After debounce:");
-    //Serial.println(scan);
-    //Serial.println(bitRead(state_, STATE_CURRENT));
-    //Serial.println(bitRead(state_, STATE_PREVIOUS));
 
     const uint8_t changed = bitRead(state_, STATE_CURRENT) != bitRead(state_, STATE_PREVIOUS);
     bitWrite(state_, STATE_CHANGED, changed);
@@ -80,7 +71,6 @@ bool BtButton::read()
       }
       else
         bitWrite(state_, STATE_HOLD_NOTIFIED, 0);
-
     }
   }
 
@@ -106,4 +96,3 @@ bool BtButton::changedToPressed() const
 {
   return bitRead(state_, STATE_CHANGED) & bitRead(state_, STATE_CURRENT);
 }
-

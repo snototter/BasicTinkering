@@ -9,13 +9,9 @@ Includes wrappers for:
 * `BtStopWatch` (templated class) - measures time.
 
 TODO
-* Check documentation of library classes
-  DONE BtStopWatch
-  DONE SSD
-  DONE POTI
-  DONE LED
-  Btn
+* DONE Check documentation of library classes
 * Check examples
+TEST SSD on Nano!!
 * Check lib.properties
 * push
 * Tag commit

@@ -42,22 +42,27 @@ public:
    */
   bool isHeld() const;
 
-  // Returns true if the button state changed.
-  // Invoke after read().
+  /**
+   * Returns true if the button state changed.
+   * Invoke after read().
+   */
   bool changed() const;
 
-  // For convenience: returns true only for the first time after the user
-  // pressed the button. Basically just returns changed() && isPressed().
+  /**
+   * For convenience: returns true only for the first time after
+   * the user pressed the button. Basically just returns
+   * changed() && isPressed().
+   */
   bool changedToPressed() const;
 
 private:
-  // Pin number (digital in)
+  /** Pin number. */
   uint8_t pin_;
 
-  // Internal state variable
+  /** Internal state variable. */
   uint8_t state_;
 
-  // How long to wait for signal stabilization
+  /** How long to wait for signal stabilization. */
   unsigned int debounce_delay_;
 
   /** Time stamp of last signal change. */
