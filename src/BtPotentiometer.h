@@ -16,42 +16,45 @@
  * Wrapper for potentiometers.
  *
  * Template parameter NUM_BINS is used
- * to bin the poti values into bins/sectors.
- * You have to ensure that
+ * to bin the potentiometer values into
+ * bins/sectors. You have to ensure that
  * 0 < NUM_BINS <= BT_ADC_RESOLUTION.
  */
 template <uint16_t NUM_BINS>
 class BtPotentiometer
 {
 public:
-  // Set the pin number upon construction.
-    BtPotentiometer(uint8_t pin) : pin_(pin) {}
+  /** Set the pin number upon construction. */
+  BtPotentiometer(uint8_t pin) : pin_(pin) {}
 
-  // Return the current value.
+  /** Returns the current value. */
   uint16_t readValue() const
   {
     return analogRead(pin_);
   }
 
-  // Return the current bin.
+  /** Returns the current bin. */
   uint16_t readBin() const
   {
     return analogRead(pin_) / (BT_ADC_RESOLUTION / NUM_BINS);
   }
 
-  // Return the templated number of bins.
+  /** Returnt the templated number of bins. */
   uint16_t numBins() const
   {
     return NUM_BINS;
   }
 
 private:
-  // Pin number (digital in).
+  /** Pin number (analog in). */
   uint8_t pin_;
 };
 
 
-// Check if two potentiometer readings differ more than a given threshold.
+/**
+ * Convenience function to check if two values differ more than
+ * a given threshold.
+ */
 inline bool potentiometerChanged(uint16_t current, uint16_t previous, uint16_t threshold=10)
 {
   if (current > previous)

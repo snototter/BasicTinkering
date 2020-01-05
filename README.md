@@ -1,5 +1,5 @@
 # BasicTinkering Library
-A collection of wrapper classes for commonly used electronic components. Quite useful for tinkering and keeping Arduino code maintainable.
+A collection of wrapper classes for commonly used electronic components. Quite useful for tinkering and keeping projects slightly more maintainable.
 
 Includes wrappers for:
 * `BtButton` - software-debounced push-buttons/triggers.
@@ -9,6 +9,14 @@ Includes wrappers for:
 * `BtStopWatch` (templated class) - measures time.
 
 TODO
-* Check documentation library classes
+* Check documentation of library classes
+  DONE BtStopWatch
+  DONE SSD
+  DONE POTI
+  DONE LED
+  Btn
+* Check examples
+* Check lib.properties
+* push
 * Tag commit
 * Open lib mgr issue

@@ -2,34 +2,44 @@
 #define __BASIC_TINKERING_BUTTON__
 
 /**
- * Utility for software-debounced buttons.
+ * Utility for software-debounced buttons,
+ * query state changes and hold-actions.
  */
 class BtButton
 {
 public:
-  // pin:              Pin number
-  // debounce_delay:   How many milliseconds to wait for stabilization of
-  //                   button signal. Set to 0 to disable/use a hardware-
-  //                   debounce (e.g. Schmitt trigger).
-  // hold_delay:       The button must be pressed for X milliseconds before
-  //                   isHeld() will return true.
-  // notify_hold_once: If true, isHeld() returns true only once (unless button
-  //                   is released and pressed again). Otherwise, isHeld()
-  //                   returns true as long as the button is pressed.
+  /** Set up button upon construction:
+   * pin:              Pin number
+   * debounce_delay:   How many milliseconds to wait for stabilization of
+   *                   button signal. Set to 0 to disable/use a hardware-
+   *                   debounce (e.g. Schmitt trigger).
+   * hold_delay:       The button must be pressed for X milliseconds before
+   *                   isHeld() will return true.
+   * notify_hold_once: If true, isHeld() returns true only once (unless button
+   *                   is released and pressed again). Otherwise, isHeld()
+   *                   returns true as long as the button is pressed.
+   */
   BtButton(uint8_t pin, unsigned int debounce_delay = 50,
     unsigned int hold_delay = 500, bool notify_hold_once = true);
 
-  // Must be invoked in every loop iteration to scan the button's pin.
-  // Returns true if the button is currently pressed.
+  /**
+   * Must be invoked in every loop iteration to scan the button's pin.
+   * Returns true if/as long as the button is currently pressed.
+   */
   bool read();
 
-  // Returns the current state of the button.
-  // Invoke after read().
-  // This will return true as long as the button is pressed!
+  /**
+   * Returns the current state of the button.
+   * Invoke after read().
+   * This will return true as long as the button is pressed!
+   */
   bool isPressed() const;
 
-  // Returns true if the button is currently active and has
-  // been pressed for the configured minimum amount of time.
+  /**
+   * Returns true if the button is currently active/pressed and
+   * has been pressed for the configured minimum amount of time,
+   * i.e. "hold_delay" in c'tor.
+   */
   bool isHeld() const;
 
   // Returns true if the button state changed.
@@ -50,13 +60,13 @@ private:
   // How long to wait for signal stabilization
   unsigned int debounce_delay_;
 
-  // Time stamp of last signal change
+  /** Time stamp of last signal change. */
   unsigned long debounce_start_;
 
-  // How long to wait before considering isHeld() to be true
+  /** How long to wait before considering isHeld() to be true. */
   unsigned int hold_delay_;
 
-  // Time stamp of last button down
+  /** Time stamp of last button down. */
   unsigned long hold_start_;
 };
 #endif
