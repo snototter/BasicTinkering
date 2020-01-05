@@ -10,8 +10,7 @@ Includes wrappers for:
 
 TODO
 * DONE Check documentation of library classes
-* Check examples
-TEST SSD on Nano!!
+* DONE Check examples
 * Check lib.properties
 * push
 * Tag commit
